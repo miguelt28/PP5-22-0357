@@ -4,14 +4,19 @@ Miguel Tapia
 Refinando Codigp
 Publicar un codigo y refinarlo utilizando Github
 """
-
+import sys
 
 def listas_codigo():
     """Función que devuelve una lista de costos del archivo gift_costs.txt"""
     with open('gift_costs.txt', 'r', encoding='UTF-8') as archive:
         gift_costs = list(archive)
+      try:
+        
     gift_costs = [int(c) for c in gift_costs] 
     archivo.close()
+    except ValueError
+    print("Datos Digitos")
+    sys.exit()
     return gift_costs
 
 
