@@ -7,27 +7,25 @@ Publicar un codigo y refinarlo utilizando Github
 
 
 def listas_codigo():
-    archives = open('gift_costs.txt', 'r')
-    gift_costs = list(archives)
-    gift_costs = [int(c) for c in gift_costs]  # funcion int
-    archives.close()  # terminar con el archivo
+    """Función que devuelve una lista de costos del archivo gift_costs.txt"""
+    with open('gift_costs.txt', 'r', encoding='UTF-8') as archive:
+        gift_costs = list(archive)
+    gift_costs = [int(c) for c in gift_costs] 
+    archivo.close()
     return gift_costs
 
 
-def totales(gift_costs):
-    precio_total = 0
-    for cost in gift_costs:
-        if cost > 1000:
-            precio_total += cost * 1.16  # agrega impuestos
+def total(gift_costs):
+    """Función que suma los precios de la lista de costos"""
+    total_price = 0
+    for precio in gift_costs:
+        if precio > 1000:
+            total_price += precio * 1.16  
         else:
-            precio_total += cost  # los costos menores a 1000 no se le agrega impuesto
-
-    return precio_total
+            total_price += precio
+    return total_price
 
 
 def main():
-    print(totales(listas_codigo()))
-    # llama a los dos funciones y luego imprime el resultado
-
-if __name__ == '_main_':
-    main()
+    """Función  que llama ambas funciones y dice el total final"""
+    print(total(listas_codigo()))
